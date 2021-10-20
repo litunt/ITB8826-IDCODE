@@ -121,4 +121,9 @@ public class IdCodeTest {
     public void givenIdCode_37605030299_whenIsCorrect_thenReturnTrue() {
         assertTrue(new IdCode("37605030299").isCorrect());
     }
+
+    @Test
+    public void givenIdCode_37602300299_notCorrect() {
+        assertFalse(new IdCode("37602300299").isCorrect());
+    }
 }

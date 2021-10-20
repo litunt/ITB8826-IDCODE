@@ -1,5 +1,6 @@
 package itb8826.taltech.idcode;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class IdCode {
@@ -42,7 +43,9 @@ public class IdCode {
      * @return boolean describing whether or not the id code was correct.
      */
     public boolean isCorrect() {
-        return isCorrectBasic();
+        return isCorrectBasic() && isYearNumberCorrect()
+                && isGenderNumberCorrect() && isControlNumberCorrect()
+                && isMonthNumberCorrect() && isDayNumberCorrect();
     }
 
     /**
@@ -153,12 +156,30 @@ public class IdCode {
     }
 
     /**
+     * Check if the year number is correct.
+     *
+     * @return boolean describing whether the year number is correct.
+     */
+    private boolean isYearNumberCorrect() {
+        int genderNumber = Integer.parseInt(idCodeValue.substring(0, 1));
+        int yearNumber = Integer.parseInt(idCodeValue.substring(1, 3));
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        if (genderNumber > 4) {
+            return yearNumber + 2000 <= currentYear;
+        } else {
+            return true;
+        }
+
+    }
+
+    /**
      * Check if the month number is correct.
      *
      * @return boolean describing whether the month number is correct.
      */
     private boolean isMonthNumberCorrect() {
-        return false;
+        int month = Integer.parseInt(idCodeValue.substring(3, 5));
+        return month > 0 && month <= 12;
     }
 
     /**
@@ -167,7 +188,17 @@ public class IdCode {
      * @return boolean describing whether the day number is correct.
      */
     private boolean isDayNumberCorrect() {
-        return false;
+        int month = Integer.parseInt(idCodeValue.substring(3, 5));
+        int day = Integer.parseInt(idCodeValue.substring(5, 7));
+        int fullYear = getFullYear();
+        if (day > 28) {
+            if (month == 2) {
+                return day < 30 && isLeapYear(fullYear);
+            } else if (month <= 7 && month % 2 == 0 || month > 7 && month % 2 != 0) {
+                return day < 31;
+            }
+        }
+        return true;
     }
 
     /**
@@ -176,7 +207,36 @@ public class IdCode {
      * @return boolean describing whether the control number is correct.
      */
     private boolean isControlNumberCorrect() {
-        return false;
+        try {
+            int controlNumberFromIdCode = Integer.parseInt(idCodeValue.substring(10));
+
+            int factor = 1;
+
+            int controlNumber = 0;
+            boolean controlNumberFound = false;
+            int numberOfTries = 0;
+
+            while (numberOfTries < 2 && !controlNumberFound) {
+                int sum = 0;
+                for (int i = 0; i < 10; i++) {
+                    sum += Character.getNumericValue(idCodeValue.charAt(i)) * factor;
+                    factor++;
+                    if (factor > 9) {
+                        factor = 1;
+                    }
+                }
+                numberOfTries++;
+                controlNumber = sum % 11;
+                if (controlNumber != 10) {
+                    controlNumberFound = true;
+                }
+                factor += 2;
+            }
+            return controlNumber == controlNumberFromIdCode;
+        } catch (NumberFormatException x) {
+            return false;
+        }
+
     }
 
     /**
@@ -186,7 +246,7 @@ public class IdCode {
      * @return boolean describing whether the given year is a leap year.
      */
     private boolean isLeapYear(int fullYear) {
-        return false;
+        return ((fullYear % 4 == 0) && (fullYear % 100 != 0)) || (fullYear % 400 == 0);
     }
 
     public static void main(String[] args) {
