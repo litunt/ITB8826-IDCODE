@@ -77,8 +77,16 @@ public class IdCodeTest {
     }
 
     @Test
-    public void givenIdCode_37605034210_whenGetBirthPlace_thenReturnPärnu() {
+    public void givenIdCode_37605034210_whenGetBirthPlace_thenReturnParnu() {
         String result = new IdCode("37605034210").getBirthPlace();
         assertEquals(result, "Pärnu");
+    }
+
+    /* TEST INFORMATION */
+
+    @Test
+    public void givenIdCode_37605030299_whenGetInformation_thenReturnStringContainingGenderAndBirthDateAndLocation() {
+        String result = new IdCode("37605030299").getInformation();
+        assertEquals(result, "This is a MALE born on 03.05.1976 in Tallinn");
     }
 }

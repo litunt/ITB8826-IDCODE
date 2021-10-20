@@ -49,7 +49,7 @@ public class IdCode {
      * @return String containing information.
      */
     public String getInformation() {
-        return null;
+        return "";
     }
 
     /**
@@ -86,8 +86,16 @@ public class IdCode {
             return NARVA;
         } else if (placeNum <= 470) {
             return PARNU;
+        } else if (placeNum <= 520) {
+            return PAIDE;
+        } else if (placeNum <= 570) {
+            return RAKVERE;
+        } else if (placeNum <= 600) {
+            return VALGA;
+        } else if (placeNum <= 650) {
+            return VILJANDI;
         }
-        return "";
+        return VORU;
     }
 
     /**
