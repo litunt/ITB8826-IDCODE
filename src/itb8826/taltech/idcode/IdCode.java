@@ -84,6 +84,8 @@ public class IdCode {
             return KOHTLAJARVE;
         } else if (placeNum <= 420) {
             return NARVA;
+        } else if (placeNum <= 470) {
+            return PARNU;
         }
         return "";
     }
