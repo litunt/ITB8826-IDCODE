@@ -3,8 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static itb8826.taltech.idcode.IdCode.Gender.FEMALE;
 import static itb8826.taltech.idcode.IdCode.Gender.MALE;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IdCodeTest {
 
@@ -102,5 +101,10 @@ public class IdCodeTest {
     @Test
     public void givenIdCode_376o5030299_notCorrect() {
         assertFalse(new IdCode("376o5030299").isCorrect());
+    }
+
+    @Test
+    public void givenIdCode_37605030299_whenIsCorrect_thenReturnTrue() {
+        assertTrue(new IdCode("37605030299").isCorrect());
     }
 }
