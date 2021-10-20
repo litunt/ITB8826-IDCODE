@@ -39,4 +39,12 @@ public class IdCodeTest {
         int result = new IdCode("50005200009").getFullYear();
         assertEquals(result, 2000);
     }
+
+    /* TEST BIRTHPLACE */
+
+    @Test
+    public void givenIdCode_37605030015_whenGetBirthPlace_thenReturnKuressaare() {
+        String result = new IdCode("37605030015").getBirthPlace();
+        assertEquals(result, "Kuressaare");
+    }
 }

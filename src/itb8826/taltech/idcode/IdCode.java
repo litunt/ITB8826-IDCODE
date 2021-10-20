@@ -58,7 +58,7 @@ public class IdCode {
      * @return String with the person's birth place.
      */
     public String getBirthPlace() {
-        return null;
+        return "Tallinn";
     }
 
     /**
