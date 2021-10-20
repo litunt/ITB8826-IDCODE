@@ -65,4 +65,10 @@ public class IdCodeTest {
         String result = new IdCode("37605030211").getBirthPlace();
         assertEquals(result, "Tallinn");
     }
+
+    @Test
+    public void givenIdCode_37605032216_whenGetBirthPlace_thenReturnKohtlaJarveWithHyphen() {
+        String result = new IdCode("37605032216").getBirthPlace();
+        assertEquals(result, "Kohtla-Järve");
+    }
 }
