@@ -69,4 +69,10 @@ public class IdCodeTest {
         String result = new IdCode("37605032216").getBirthPlace();
         assertEquals(result, "Kohtla-Järve");
     }
+
+    @Test
+    public void givenIdCode_37605033714_whenGetBirthPlace_thenReturnNarva() {
+        String result = new IdCode("37605033714").getBirthPlace();
+        assertEquals(result, "Narva");
+    }
 }
