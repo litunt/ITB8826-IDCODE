@@ -46,7 +46,7 @@ public class IdCode {
      */
     public Gender getGender() {
         int firstNum = Integer.parseInt(idCodeValue.substring(0, 1));
-        if (firstNum == 1) {
+        if (firstNum % 2 != 0) {
             return Gender.MALE;
         }
         return Gender.FEMALE;
