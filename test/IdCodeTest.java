@@ -33,4 +33,10 @@ public class IdCodeTest {
         int result = new IdCode("37605030299").getFullYear();
         assertEquals(result, 1976);
     }
+
+    @Test
+    public void givenIdCode_50005200009_whenGetFullYear_thenReturn2000() {
+        int result = new IdCode("50005200009").getFullYear();
+        assertEquals(result, 2000);
+    }
 }
