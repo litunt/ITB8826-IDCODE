@@ -22,4 +22,9 @@ public class IdCodeTest {
     public void givenIdCode_19912272016_whenGetGender_thenReturnMale() {
         assertEquals(new IdCode("19912272016").getGender(), MALE);
     }
+
+    @Test
+    public void givenIdCode_39912272017_whenGetGender_thenReturnMale() {
+        assertEquals(new IdCode("39912272017").getGender(), MALE);
+    }
 }
