@@ -42,7 +42,7 @@ public class IdCode {
      * @return boolean describing whether or not the id code was correct.
      */
     public boolean isCorrect() {
-        return true;
+        return isCorrectBasic();
     }
 
     /**
