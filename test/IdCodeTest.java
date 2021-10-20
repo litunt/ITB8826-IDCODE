@@ -89,4 +89,10 @@ public class IdCodeTest {
         String result = new IdCode("37605030299").getInformation();
         assertEquals(result, "This is a MALE born on 03.05.1976 in Tallinn");
     }
+
+    @Test
+    public void givenIdCode_47605036009_whenGetInformation_thenReturnStringContainingGenderAndBirthDateAndLocation() {
+        String result = new IdCode("47605036009").getInformation();
+        assertEquals(result, "This is a FEMALE born on 03.05.1976 in Valga");
+    }
 }
