@@ -49,7 +49,13 @@ public class IdCode {
      * @return String containing information.
      */
     public String getInformation() {
-        return "";
+        String gender = getGender().name();
+        String day = idCodeValue.substring(5, 7);
+        String month = idCodeValue.substring(3, 5);
+        int year = getFullYear();
+        String birthPlace = getBirthPlace();
+        return String.format("This is a %s born on %s.%s.%d in %s",
+                gender, day, month, year, birthPlace);
     }
 
     /**
