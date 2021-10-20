@@ -67,7 +67,7 @@ public class IdCode {
      * @return int with person's birth year.
      */
     public int getFullYear() {
-        return 2021;
+        return 1900 + Integer.parseInt(idCodeValue.substring(1, 3));
     }
 
     /**
