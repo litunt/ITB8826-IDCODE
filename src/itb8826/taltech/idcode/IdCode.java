@@ -67,7 +67,15 @@ public class IdCode {
      * @return int with person's birth year.
      */
     public int getFullYear() {
-        return 1900 + Integer.parseInt(idCodeValue.substring(1, 3));
+        int firstNum = Integer.parseInt(idCodeValue.substring(0, 1));
+        int initYear = Integer.parseInt(idCodeValue.substring(1, 3));
+
+        if (firstNum <= 2) {
+            return 1800 + initYear;
+        } else if (firstNum <= 4) {
+            return 1900 + initYear;
+        }
+        return 2000 + initYear;
     }
 
     /**
