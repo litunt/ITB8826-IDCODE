@@ -67,7 +67,7 @@ public class IdCode {
      * @return int with person's birth year.
      */
     public int getFullYear() {
-        return 0;
+        return 2021;
     }
 
     /**

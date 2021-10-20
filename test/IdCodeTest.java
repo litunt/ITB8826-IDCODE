@@ -9,15 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IdCodeTest {
 
-    @BeforeAll
-    static void setup() {
-//        log.info("@BeforeAll - executes once before all test methods in this class");
-    }
-
-    @BeforeEach
-    void init() {
-//        log.info("@BeforeEach - executes before each test method in this class");
-    }
+    /* TEST GENDER */
 
     @Test
     public void givenIdCode_19912272016_whenGetGender_thenReturnMale() {
@@ -32,5 +24,13 @@ public class IdCodeTest {
     @Test
     public void givenIdCode_29912272017_whenGetGender_thenReturnFemale() {
         assertEquals(new IdCode("29912272017").getGender(), FEMALE);
+    }
+
+    /* TEST FULL YEAR */
+
+    @Test
+    public void givenIdCode_37605030299_whenGetFullYear_thenReturn1976() {
+        int result = new IdCode("37605030299").getFullYear();
+        assertEquals(result, 1976);
     }
 }
