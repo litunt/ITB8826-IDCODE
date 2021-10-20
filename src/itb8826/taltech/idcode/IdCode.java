@@ -78,6 +78,8 @@ public class IdCode {
             return KURESSAARE;
         } else if (placeNum <= 20 || placeNum >= 271 && placeNum <= 370) {
             return TARTU;
+        } else if (placeNum <= 220 || placeNum >= 471 && placeNum <= 490) {
+            return TALLINN;
         }
         return "";
     }
