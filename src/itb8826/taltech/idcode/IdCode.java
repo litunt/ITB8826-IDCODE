@@ -76,10 +76,10 @@ public class IdCode {
             return UNKNOWN;
         } else if (placeNum <= 10) {
             return KURESSAARE;
-        } else if (placeNum >= 11 && placeNum <= 20 || placeNum >= 271 && placeNum <= 370) {
+        } else if (placeNum <= 20 || placeNum >= 271 && placeNum <= 370) {
             return TARTU;
         }
-        return "Tallinn";
+        return "";
     }
 
     /**
