@@ -80,6 +80,8 @@ public class IdCode {
             return TARTU;
         } else if (placeNum <= 220 || placeNum >= 471 && placeNum <= 490) {
             return TALLINN;
+        } else if (placeNum <= 270) {
+            return KOHTLAJARVE;
         }
         return "";
     }

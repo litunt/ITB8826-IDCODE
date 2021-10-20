@@ -1,6 +1,4 @@
 import itb8826.taltech.idcode.IdCode;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static itb8826.taltech.idcode.IdCode.Gender.FEMALE;
