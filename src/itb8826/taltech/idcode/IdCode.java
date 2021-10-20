@@ -82,6 +82,8 @@ public class IdCode {
             return TALLINN;
         } else if (placeNum <= 270) {
             return KOHTLAJARVE;
+        } else if (placeNum <= 420) {
+            return NARVA;
         }
         return "";
     }
