@@ -71,12 +71,13 @@ public class IdCode {
      * @return String with the person's birth place.
      */
     public String getBirthPlace() {
-        int placeNum = Integer.parseInt(idCodeValue.substring(8));
+        int placeNum = Integer.parseInt(idCodeValue.substring(7, 10));
         if (placeNum == 0 || placeNum >= 711) {
             return UNKNOWN;
-        }
-        if (placeNum <= 10) {
+        } else if (placeNum <= 10) {
             return KURESSAARE;
+        } else if (placeNum >= 11 && placeNum <= 20 || placeNum >= 271 && placeNum <= 370) {
+            return TARTU;
         }
         return "Tallinn";
     }
