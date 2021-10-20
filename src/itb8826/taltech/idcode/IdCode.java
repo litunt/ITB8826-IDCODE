@@ -4,6 +4,19 @@ public class IdCode {
 
     private final String idCodeValue;
 
+    private static String KURESSAARE = "Kuressaare";
+    private static String TARTU = "Tartu";
+    private static String TALLINN = "Tallinn";
+    private static String KOHTLAJARVE = "Kohtla-Järve";
+    private static String NARVA = "Narva";
+    private static String PARNU = "Pärnu";
+    private static String PAIDE = "Paide";
+    private static String RAKVERE = "Rakvere";
+    private static String VALGA = "Valga";
+    private static String VILJANDI = "Viljandi";
+    private static String VORU = "Võru";
+    private static String UNKNOWN = "unknown";
+
     public enum Gender {
         MALE, FEMALE
     }
@@ -58,6 +71,10 @@ public class IdCode {
      * @return String with the person's birth place.
      */
     public String getBirthPlace() {
+        int placeNum = Integer.parseInt(idCodeValue.substring(8, 10));
+        if (placeNum <= 10) {
+            return KURESSAARE;
+        }
         return "Tallinn";
     }
 
