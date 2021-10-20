@@ -1,5 +1,7 @@
 package itb8826.taltech.idcode;
 
+import java.util.Scanner;
+
 public class IdCode {
 
     private final String idCodeValue;
@@ -40,7 +42,16 @@ public class IdCode {
      * @return boolean describing whether or not the id code was correct.
      */
     public boolean isCorrect() {
-        return false;
+        return true;
+    }
+
+    /**
+     * Check if the id code is valid under basic cases or not.
+     *
+     * @return boolean describing whether or not the id code was correct.
+     */
+    private boolean isCorrectBasic() {
+        return idCodeValue.length() == 11 && idCodeValue.matches("[0-9]+");
     }
 
     /**
@@ -50,12 +61,10 @@ public class IdCode {
      */
     public String getInformation() {
         String gender = getGender().name();
-        String day = idCodeValue.substring(5, 7);
-        String month = idCodeValue.substring(3, 5);
-        int year = getFullYear();
+        String birthDate = getBirthDate();
         String birthPlace = getBirthPlace();
-        return String.format("This is a %s born on %s.%s.%d in %s",
-                gender, day, month, year, birthPlace);
+        return String.format("This is a %s born on %s in %s",
+                gender, birthDate, birthPlace);
     }
 
     /**
@@ -122,21 +131,25 @@ public class IdCode {
     }
 
     /**
+     * Get the birthdate that the person was born.
+     *
+     * @return string with person's birth date.
+     */
+    public String getBirthDate() {
+        String day = idCodeValue.substring(5, 7);
+        String month = idCodeValue.substring(3, 5);
+        int year = getFullYear();
+        return String.format("%s.%s.%d", day, month, year);
+    }
+
+    /**
      * Check if gender number is correct.
      *
      * @return boolean describing whether the gender number is correct.
      */
     private boolean isGenderNumberCorrect() {
-        return false;
-    }
-
-    /**
-     * Check if the year number is correct.
-     *
-     * @return boolean describing whether the year number is correct.
-     */
-    private boolean isYearNumberCorrect() {
-        return false;
+        int genderNum = Integer.parseInt(idCodeValue.substring(0, 1));
+        return genderNum >= 1 && genderNum <= 6;
     }
 
     /**
@@ -174,5 +187,40 @@ public class IdCode {
      */
     private boolean isLeapYear(int fullYear) {
         return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner consoleScanner = new Scanner(System.in);
+        System.out.println("Enter ID code");
+
+        String idCodeString = consoleScanner.nextLine();
+        IdCode idCode = new IdCode(idCodeString);
+
+        if (!idCode.isCorrectBasic()) {
+            System.out.println("Entered ID code is incorrect!");
+            return;
+        }
+
+        System.out.println("Choose method (number): ");
+        System.out.println("1 - getGender()\n2 - getFullYear()\n3 - getBirthPlace()\n" +
+                "4 - getInformation()\n5 - getBirthDate()\n6 - isCorrect()");
+
+        int methodNumber = Integer.parseInt(consoleScanner.nextLine());
+        switch (methodNumber) {
+            case 1:
+                System.out.println("Gender: " + idCode.getGender());
+            case 2:
+                System.out.println("Full year: " + idCode.getFullYear());
+            case 3:
+                System.out.println("Birth place: " + idCode.getBirthPlace());
+            case 4:
+                System.out.println("Information: " + idCode.getInformation());
+            case 5:
+                System.out.println("Birthdate: " + idCode.getBirthDate());
+            case 6:
+                System.out.println("Is correct? " + (idCode.isCorrect() ? "YES" : "NO"));
+            default:
+                System.out.println("Wrong method number!");
+        }
     }
 }

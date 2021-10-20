@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import static itb8826.taltech.idcode.IdCode.Gender.FEMALE;
 import static itb8826.taltech.idcode.IdCode.Gender.MALE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class IdCodeTest {
 
@@ -94,5 +95,12 @@ public class IdCodeTest {
     public void givenIdCode_47605036009_whenGetInformation_thenReturnStringContainingGenderAndBirthDateAndLocation() {
         String result = new IdCode("47605036009").getInformation();
         assertEquals(result, "This is a FEMALE born on 03.05.1976 in Valga");
+    }
+
+    /* TEST IS CORRECT */
+
+    @Test
+    public void givenIdCode_376o5030299_notCorrect() {
+        assertFalse(new IdCode("376o5030299").isCorrect());
     }
 }
