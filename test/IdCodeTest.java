@@ -104,6 +104,12 @@ public class IdCodeTest {
         assertEquals(result, "03.05.1976");
     }
 
+    @Test
+    public void givenIdCode_47625116009_whenGetBirtHDate_thenReturnStringContainingBirthDate() {
+        String result = new IdCode("47611256009").getBirthDate();
+        assertEquals(result, "25.11.1976");
+    }
+
     /* TEST IS CORRECT */
 
     @Test
