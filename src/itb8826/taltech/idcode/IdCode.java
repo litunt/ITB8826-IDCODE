@@ -45,10 +45,11 @@ public class IdCode {
      * @return enum describing person's gender
      */
     public Gender getGender() {
-        if (idCodeValue.startsWith("2")) {
-            return Gender.FEMALE;
+        int firstNum = Integer.parseInt(idCodeValue.substring(0, 1));
+        if (firstNum == 1) {
+            return Gender.MALE;
         }
-        return null;
+        return Gender.FEMALE;
     }
 
     /**
