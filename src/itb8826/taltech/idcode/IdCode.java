@@ -136,8 +136,8 @@ public class IdCode {
      * @return string with person's birth date.
      */
     public String getBirthDate() {
-        String day = idCodeValue.substring(5, 7);
-        String month = idCodeValue.substring(3, 5);
+        String day = String.valueOf(Integer.parseInt(idCodeValue.substring(5, 7)));
+        String month = String.valueOf(Integer.parseInt(idCodeValue.substring(3, 5)));
         int year = getFullYear();
         return String.format("%s.%s.%d", day, month, year);
     }

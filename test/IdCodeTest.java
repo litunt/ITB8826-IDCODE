@@ -96,6 +96,14 @@ public class IdCodeTest {
         assertEquals(result, "This is a FEMALE born on 03.05.1976 in Valga");
     }
 
+    /* TEST BIRTHDATE */
+
+    @Test
+    public void givenIdCode_47605036009_whenGetBirtHDate_thenReturnStringContainingBirthDate() {
+        String result = new IdCode("47605036009").getBirthDate();
+        assertEquals(result, "03.05.1976");
+    }
+
     /* TEST IS CORRECT */
 
     @Test
