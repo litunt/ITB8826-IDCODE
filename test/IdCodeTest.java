@@ -143,4 +143,12 @@ public class IdCodeTest {
     public void givenIdCode_49808270244_dayNumberIsCorrect() {
         assertTrue(new IdCode("49808270244").isDayNumberCorrect());
     }
+
+    /* TEST ID CODE VALUE */
+
+    @Test
+    public void givenIdCode_37605030299_canReturnValue() {
+        String result = new IdCode("37605030299").getIdCodeValue();
+        assertEquals(result, "37605030299");
+    }
 }
