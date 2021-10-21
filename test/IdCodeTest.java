@@ -126,4 +126,21 @@ public class IdCodeTest {
     public void givenIdCode_37602300299_notCorrect() {
         assertFalse(new IdCode("37602300299").isCorrect());
     }
+
+    /* TEST DAY NUMBER CORRECT */
+
+    @Test
+    public void givenIdCode_49802290244_dayNumberNotCorrect() {
+        assertFalse(new IdCode("49802290244").isDayNumberCorrect());
+    }
+
+    @Test
+    public void givenIdCode_49809310244_dayNumberNotCorrect() {
+        assertFalse(new IdCode("49809310244").isDayNumberCorrect());
+    }
+
+    @Test
+    public void givenIdCode_49808270244_dayNumberIsCorrect() {
+        assertTrue(new IdCode("49808270244").isDayNumberCorrect());
+    }
 }

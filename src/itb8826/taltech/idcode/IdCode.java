@@ -187,7 +187,7 @@ public class IdCode {
      *
      * @return boolean describing whether the day number is correct.
      */
-    private boolean isDayNumberCorrect() {
+    public boolean isDayNumberCorrect() {
         int month = Integer.parseInt(idCodeValue.substring(3, 5));
         int day = Integer.parseInt(idCodeValue.substring(5, 7));
         int fullYear = getFullYear();
